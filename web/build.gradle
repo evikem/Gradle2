@@ -5,5 +5,3 @@ dependencies {
    compile project(":utils")
    compile "javax.servlet:servlet-api:2.5"
 }
-
-httpPort = 8086
