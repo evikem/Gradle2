@@ -13,6 +13,9 @@ RUN curl -jkL http://www-eu.apache.org/dist/tomcat/tomcat-${MAJOR}/v${MAJOR}.${M
 		&& tar zxvf /opt/apache-tomcat-${MAJOR}.${MINOR}.${PATCH}.tar.gz -C /opt \
 		&& rm /opt/apache-tomcat-${MAJOR}.${MINOR}.${PATCH}.tar.gz 
 
+RUN echo '<role rolename="manager-gui"/> <role rolname="manager-script"/> <user username="admin" password="admin" roles="manager-gui,manager-script"/>' >>/opt/apache-tomcat-7.0.68/conf/tomcat-users.xml 
+
+
 RUN curl -jkLH "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${JMAJOR}u${JUPDATE}-b${JB}/jre-${JMAJOR}u${JUPDATE}-linux-x64.tar.gz" > /opt/jre-${JMAJOR}u${JUPDATE}-linux-x64.tar.gz \
  		&& tar zxvf /opt/jre-${JMAJOR}u${JUPDATE}-linux-x64.tar.gz -C /opt \
  		&& rm /opt/jre-${JMAJOR}u${JUPDATE}-linux-x64.tar.gz
